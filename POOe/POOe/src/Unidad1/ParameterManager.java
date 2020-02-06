@@ -1,4 +1,9 @@
 package Unidad1;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
 /*
  * Visibilidad:
  * Caracteristica de los objetos
@@ -16,21 +21,46 @@ public class ParameterManager{
 	private int count;
 
 	/**
-	 * @return the count
+	 * Obtiene la cantidad de parámetros.
+	 * @return count
 	 */
 	public int getCount() {
 		return count;
 	}
 
 	/**
-	 * @param count the count to set
+	 * @param count Establece la Cantidad de parámetros detectados
 	 */
 	public void setCount(int count) {
 		this.count = count;
 	}
 	/** Respuesta de analisis de parámetros*/
-	public ReponseParameterManager analize(String[] parameters) {
+	public ReponseParameterManager analize(Map<String,String[]> parameters) {
+		List<ParameterAnalysis> results = new ArrayList<>();
 		ReponseParameterManager rpm = new ReponseParameterManager();
+		
+		//Se ignora el indice
+		for(String[] parameter : parameters.values()) {
+			
+			for(String element : parameter) {
+
+				//Tamaño en caracteres del valor del parámetro
+				int length;
+				//Tipo del parametro
+				String parameterType;
+				
+				length = element.length();
+				
+				if(element.matches("-?\\d+(\\.\\d+)?")) {
+					parameterType = "numeric";
+				}else {
+					parameterType = "alphanumeric";
+				}
+				results.add(new ParameterAnalysis(element,length,parameterType));
+			}
+		}
+		rpm.setCount(parameters.size());
+		rpm.setResults(results);
 		return rpm;
 	}
 	
