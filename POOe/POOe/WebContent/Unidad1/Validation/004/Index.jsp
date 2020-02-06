@@ -1,4 +1,5 @@
 <%@page import="Unidad1.ParameterManager"%>
+<%@page import="Unidad1.ResponseParameterManager" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -7,12 +8,13 @@
 		<meta charset="utf-8">
 		<meta name="author" content="Programación Orientada a Objetos">
 		<meta name="description" content="Ejemplo de Validación Usando Objetos">
-		<tittle>Ejemplo</tittle>		
+		<title>Ejemplo</title>		
 	</head>
 	<body>
 		<%
 			ParameterManager pm = new ParameterManager();
-			pm.analize(request.getParameterMap());
+			ResponseParameterManager rpm = pm.analize(request.getParameterMap());
+			out.print(pm.convertResponseToHTML(rpm));
 		%>
 	</body>
 </html>
