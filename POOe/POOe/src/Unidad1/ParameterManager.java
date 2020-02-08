@@ -66,7 +66,10 @@ public class ParameterManager{
 		rpm.setResults(results);
 		return rpm;
 	}
-	
+	/** @param ResponseParameterManager rpm
+	 * 	@return String
+	 * Convierte rpm en una tabla de texto html
+	 * */
 	public String convertResponseToHTML(ResponseParameterManager rpm) {
 		int count = rpm.getCount();
 		List<ParameterAnalysis> results = rpm.getResults();
@@ -88,7 +91,7 @@ public class ParameterManager{
 		html.append("<thead><tr>");
 			html.append("<th>No.</th>");
 			html.append("<th>Valor del Parámetro</th>");
-			html.append("<th>Tamañp en Caracteres</th>");
+			html.append("<th>Tamaño en Caracteres</th>");
 			html.append("<th>Tipo de Dato</th>");
 		html.append("</thead></tr>");
 		html.append("<tbody>");
