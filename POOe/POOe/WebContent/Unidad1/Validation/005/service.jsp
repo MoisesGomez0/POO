@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
-    import = "Unidad1.ParameterManager"
+    import = "unidad1.ParameterManager"
     import = "Unidad1.ResponseParameterManager"
     %>
 <!DOCTYPE html>

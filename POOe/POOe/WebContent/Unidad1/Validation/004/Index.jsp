@@ -1,5 +1,5 @@
-<%@page import="Unidad1.ParameterManager"%>
-<%@page import="Unidad1.ResponseParameterManager" %>
+<%@page import="unidad1.ParameterManager"%>
+<%@page import="unidad1.ResponseParameterManager" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>

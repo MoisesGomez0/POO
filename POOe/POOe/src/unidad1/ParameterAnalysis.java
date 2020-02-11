@@ -1,4 +1,4 @@
-package Unidad1;
+package unidad1;
 
 /**
  * Representa una fila de el arreglo de resultados.
