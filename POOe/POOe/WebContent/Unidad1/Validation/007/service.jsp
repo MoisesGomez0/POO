@@ -10,8 +10,7 @@
 	</head>
 	<body>
 		<%
-		out.print(request.getParameter("asdf"));
-		if(request.getParameter("userName") != "" || request.getParameter("age") != ""){
+		if(request.getParameter("userName") != "" && request.getParameter("age") != ""){
 			Validator validator = new Validator();
 			int age = validator.cleanAge(request.getParameter("age"));
 			String userName = validator.cleanUserName(request.getParameter("userName"));
