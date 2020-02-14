@@ -23,4 +23,13 @@ public class Validator {
 		age = age.trim().replaceAll("\\D+", "");
 		return Integer.parseInt(age);
 	}
+	
+	/** Permite limpiar un campo de text "text area" , elminando posibles etiquetas he HTML en el contenido.
+	@param htmlContent El contenido del textarea enviado por el usuario.
+	@return Una cadena limpia de contenido HTML.
+	 */
+	public String cleanHTMLContent(String content) {
+		content = content.trim().replaceAll("</?[^>]+>","");
+		return content;
+	}
 }

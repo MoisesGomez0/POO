@@ -21,13 +21,15 @@ parámetro "contenido de la etiqueta" -->
 	 	<option value="CO">Colombia></option>
 	 	</select>
 	 -->
+	 <p>Seleccione la etiqueta a agregar:</p>
 		 <select name="htmlTAG">
 		 	<option value="0">Span</option>
 		 	<option value="1">Paragraph</option>
 		 	<option value="2">Anchor</option>
 		 	<option value="3">Division</option>
-		 </select>
-		 <textarea rows="3" cols="8">
+		 </select><br>
+		 <p>Escriba el contenido que debe existir dentro de la etiqueta a crear:</p>
+		 <textarea rows="3" cols="40" name="htmlContent">
 		 </textarea>
 		<button type="submit">Enviar Formulario</button>
 	</form>

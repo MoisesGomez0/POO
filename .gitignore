@@ -4,3 +4,4 @@ __pycache__/
 Apache/
 .metadata/
 POOe/Servers/
+build/
