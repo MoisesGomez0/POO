@@ -25,11 +25,29 @@ public class Validator {
 	}
 	
 	/** Permite limpiar un campo de text "text area" , elminando posibles etiquetas he HTML en el contenido.
-	@param htmlContent El contenido del textarea enviado por el usuario.
-	@return Una cadena limpia de contenido HTML.
+	 *@param htmlContent El contenido del textarea enviado por el usuario.
+	 *@return Una cadena limpia de contenido HTML.
 	 */
 	public String cleanHTMLContent(String content) {
 		content = content.trim().replaceAll("</?[^>]+>","");
 		return content;
+	}
+	
+	/** Verifica que un parámetro sea un valor entero entre max y min.
+	 * @param numericValue Valor numérico como una cadena que debe cumplir con la condición min y max.
+	 * @param min Valor mínimo con el que se validará el numericValue.
+	 * @param max Valor máximo con el que se validará el numericValue.
+	 * @return El valor numérico como un entero entre un min y in max. Devuelve cero si el numericValue no cumple
+	 * con el rango min y max.
+	 */
+	public int maxInt(String numericValue, int min, int max){
+		numericValue = numericValue.trim();
+		if(numericValue.matches("\\d+")) {
+			int number = Integer.parseInt(numericValue);
+			if(number >= min && number <= max) {
+				return number;
+			}
+		}
+		return 0;
 	}
 }
