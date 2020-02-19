@@ -24,9 +24,11 @@ public class Point {
 			String[] temporalPoint = pointAsString.split(",");
 			this.x = Integer.parseInt(temporalPoint[0]);
 			this.y = Integer.parseInt(temporalPoint[1]);
-		}
-		this.x = 0;
+		}else {
 		this.y = 0;
+		this.x = 0;
+			
+		}
 	}
 
 	/**

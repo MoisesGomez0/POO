@@ -50,4 +50,17 @@ public class Validator {
 		}
 		return 0;
 	}
+	
+	/**Permite validar un parámetro color. Si el parámetro no tiene
+	 * la forma de un color, se retorna el color rojo.
+	 * @param Color Cadena con el formato del color.
+	 * @return El volor válido. 
+	 * */
+	public String color(String color) {
+		color = color.trim();
+		if(color.matches("([a-z]{3,8})|(#([\\da-f]{2}){3})")) {
+			return color;
+		}
+		return "red";
+	}
 }

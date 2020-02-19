@@ -29,20 +29,31 @@
 					Se admiten máximo 2 parámetros.
 						pointA = 1,3
 						pointB = 7,7
+			Una vez finalizado el ejercicio, haga que el programa pueda definir
+			paramétricamente el color de la figura.
 		
 		*/
+			Validator validator = new Validator();
+			String color;
+			if(request.getParameter("color") != null){
+				color = validator.color(request.getParameter("color").toString());
+			}else{
+				color = "white";
+			}
 		
 		if( request.getParameter("point") != null && request.getParameter("h") != null && request.getParameter("w") != null){
 			
-			Validator validator = new Validator();
 			
 			Point p = new Point(request.getParameter("point").toString());
 			int h = validator.maxInt(request.getParameter("h").toString(),0,100);
 			int w = validator.maxInt(request.getParameter("w").toString(),0,100);
 			
+			
+			
+			
 			Rectangle rectangle = new Rectangle();
 			
-			out.print(rectangle.draw(p,h,w));
+			out.print(rectangle.draw(p,h,w,color));
 		
 		}else if(request.getParameter("pointA") != null && 
 				request.getParameter("pointB") != null &&
@@ -55,7 +66,7 @@
 			
 			Rectangle rectangle = new Rectangle();
 			
-			out.print(rectangle.draw(pointA, pointB));
+			out.print(rectangle.draw(pointA, pointB, color));
 			
 		}
 	
