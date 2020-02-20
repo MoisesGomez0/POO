@@ -33,6 +33,7 @@
 			paramétricamente el color de la figura.
 		
 		*/
+			int zIndex = 0;
 			Validator validator = new Validator();
 			String color;
 			if(request.getParameter("color") != null){
@@ -41,7 +42,9 @@
 				color = "white";
 			}
 		
-		if( request.getParameter("point") != null && request.getParameter("h") != null && request.getParameter("w") != null){
+		if( request.getParameter("point") != null &&
+				request.getParameter("h") != null &&
+				request.getParameter("w") != null){
 			
 			
 			Point p = new Point(request.getParameter("point").toString());
@@ -49,11 +52,9 @@
 			int w = validator.maxInt(request.getParameter("w").toString(),0,100);
 			
 			
-			
-			
 			Rectangle rectangle = new Rectangle();
 			
-			out.print(rectangle.draw(p,h,w,color));
+			out.print(rectangle.draw(p,h,w,color, zIndex));
 		
 		}else if(request.getParameter("pointA") != null && 
 				request.getParameter("pointB") != null &&
@@ -66,7 +67,7 @@
 			
 			Rectangle rectangle = new Rectangle();
 			
-			out.print(rectangle.draw(pointA, pointB, color));
+			out.print(rectangle.draw(pointA, pointB, color, zIndex));
 			
 		}
 	

@@ -35,7 +35,14 @@
 			*/
 		
 			Rectangle rectangle = new Rectangle();
-			out.print(rectangle.draw(new Point("0,0"), 40, 40, "red", 5));
+			/*out.print(rectangle.draw(new Point("0,0"), 40, 40, "red", 5, 5))*/
+			
+			String[] colors = new String[]{"red", "blue", "green", "brown", "black"};
+			int times = 46;
+			
+			for(int i = 0; i<times; i++){
+				out.print(rectangle.draw(new Point(String.format("%s,%s",i,i)), 40, 40, colors[i%colors.length], times-i));
+			}
 			
 			
 		%>	
