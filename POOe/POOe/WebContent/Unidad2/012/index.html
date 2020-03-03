@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>AJAX con Jquery</title>
+    <meta name="author" content="swd">
+    <meta name="description" content="Uso de AJAX">
+    <script src='../../jquery-3.4.1.min.js'></script>
+</head>
+<body>
+    <button onclick="anyName();" >Click me</button>
+    <script>
+        /*
+        AJAX: Javascript Asincrono con JSON, XML, etc.
+        Métodos del objeto "$" de Jquery para hacer AJAX:
+            $.post(action, parameters, callback);
+            $.get(action, paremeters);
+
+            action: El sitio destino.
+            parameters: Los parámetros que se enviarán a traves del encabezado POST o de la URL GET.
+            Callback: es un método que se ejecuta con la respuesta recibida desde "action"
+            */
+        /*
+        //Ejemplo hecho con un archivo de texto cualquiera, lo que retorna al callback es su contenido    
+        function anyName(){
+
+            var action = "example.txt" //-> Un archivo txt no es capás de procesar parámetros.
+            var parameters = {"name": "Programación Orientada a Objetos"}; //-> Parametros dados en formato JSON.
+
+            var callback = function(anyVariableName){
+                document.querySelector("body").innerHTML += anyVariableName;
+            }
+            
+            $.get(action,parameters,callback);
+        }
+        */
+        /*
+        //Ejemplo hecho con un archivo de jsp que retorna un html  
+        function anyName(){
+
+        var action = "serviceRecursive.jsp";
+        var parameters = {"name": "Programación Orientada a Objetos"}; 
+        
+        var callback = function(anyVariableName){
+            document.querySelector("body").innerHTML += anyVariableName;
+        }
+
+        $.get(action,parameters,callback);
+        }
+        */
+
+        //Ejemplo hecho con un archivo de jsp que retorna un html segun los parametros que le enviemos
+        function anyName(){
+
+        var action = "service.jsp";
+        var parameters = {"option": "fibonacci"}; 
+
+        var callback = function(anyVariableName){
+            document.querySelector("body").innerHTML += anyVariableName;
+            console.log(JSON.parse(anyVariableName));
+        }
+
+        $.get(action,parameters,callback);
+        }
+
+    </script>
+</body>
+</html>
