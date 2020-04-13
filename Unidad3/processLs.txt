@@ -1,0 +1,16 @@
+File Name:  ls.sh
+	File Size: 78 bytes
+	File Date: abr 13 15:22
+
+File Name:  ls.txt
+	File Size: 169 bytes
+	File Date: abr 13 15:21
+
+File Name:  processLs.py
+	File Size: 1440 bytes
+	File Date: abr 13 15:20
+
+File Name:  processLs.txt
+	File Size: 0 bytes
+	File Date: abr 13 15:22
+

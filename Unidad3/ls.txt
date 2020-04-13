@@ -1,0 +1,5 @@
+total 12
+-rw-rw-r-- 1 moises moises   78 abr 13 15:22 ls.sh
+-rw-rw-r-- 1 moises moises    0 abr 13 15:22 ls.txt
+-rw-rw-r-- 1 moises moises 1440 abr 13 15:20 processLs.py
+-rw-rw-r-- 1 moises moises  278 abr 13 15:22 processLs.txt
