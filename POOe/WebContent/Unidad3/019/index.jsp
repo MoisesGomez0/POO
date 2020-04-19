@@ -1,29 +1,13 @@
 <%@page import="java.util.List"%>
-<%@page import="unidad2.User"%>
-<%@page import="unidad2.Auth"%>
+<%@page import="unidad3.User"%>
+<%@page import="unidad3.Auth"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%><%
     
     //En cada archivo que no es login/logout se debe validar la autenticación, incluyendo vistas y controladores.
     
-    boolean valid = false;
-	if(
-		session.getAttribute("019_auth") != null &&
-		session.getAttribute("019_auth").getClass().getSimpleName().equals("User")
-	){
-		User userSession = (User) session.getAttribute("019_auth");
-		List<User> userList = Auth.readList("auth.csv");
-		
-		for(User user: userList){
-			if(user.getName().equals(userSession.getName())){
-				valid = true;
-				break;
-			}
-		}
-		
-	}
     
-    if(!valid) response.sendRedirect("login.jsp");
+    if(!new Auth().sesssionIsValid(session)) response.sendRedirect("login.jsp");
 %>
 <!DOCTYPE html>
 <html>

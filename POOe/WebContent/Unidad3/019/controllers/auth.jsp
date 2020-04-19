@@ -1,5 +1,6 @@
-<%@page import="unidad2.Auth"%>
-<%@page import="unidad2.User"%>
+<%@page import="unidad3.Auth"%>
+<%@page import="unidad3.User"%>
+<%@page import="unidad3.Constants" %>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%><%
@@ -8,47 +9,34 @@
     //Controlador de autenticación.
     
     //Se genera una variable generica para el manejo de las respuestas (tanto positivas como negativas)
-    String statusResult = "#STATUS#";
-    String messageResult = "#MESSAGE#";
-    String result = String.format("{\"status\":%s,\"message\":%s}",statusResult,messageResult);
+
+    String result = String.format("{\"status\":%s,\"message\":%s}",Constants.StatusResult,Constants.MessageResult);
     
-	if(
-		request.getParameter("userName") != null &&
-		request.getParameter("userPassword") != null
-	){
-		
-		String subResult = result
-				.replace(statusResult,"false")
-				.replace(messageResult,"\"El usuario y/o la contraseña no son válidos.\"");
+    Auth auth = new Auth();
+	if(auth.requestIsValid(request)){
 		
 		
-		String userName = request.getParameter("userName").toString().trim();
-		String userPassword = request.getParameter("userPassword").toString().trim();
 		
-		List<User> users = Auth.readList("auth.csv");
-		for(User user:users){
-			if(user.validate(userName, userPassword)){
-				
-				User userSession = new User();
-				userSession.setName(user.getName());
-				
-				session.setAttribute("019_auth",userSession);
-				
-				subResult = result
-						.replace(statusResult,"true")
-						.replace(messageResult,"\"\"");
-					break;
-			}
+		session = auth.create(session, request);
+		
+		if((boolean)session.getAttribute(Constants.SessionStatusKey)){
+				out.print( result
+						.replace(Constants.StatusResult,"true")
+						.replace(Constants.MessageResult,"\"\"")
+					);
+			}else{
+				out.print(
+					result.replace(Constants.StatusResult, "true")
+					.replace(Constants.MessageResult,"\"El usuario y/o la contraseña no son válidos\""
+				);				
 		}
-		
-		out.print(subResult);
-		
+				
 	}else{
 		//object.action().action().action().action().action()
 		out.print(
 			result
-				.replace(statusResult,"false")
-				.replace(messageResult,"\"No se han encontrado los parámetros.\"")
+				.replace(Constants.StatusResult,"false")
+				.replace(Constants.MessageResult,"\"No se han encontrado los parámetros.\"")
 		);
 		
 	}
