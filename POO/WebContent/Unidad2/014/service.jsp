@@ -4,7 +4,7 @@
 <%@page import="unidad2.Auth"%>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%><%
+    pageEncoding="UTF-8"%><%/*
     if(
     		request.getParameter("option") != null &&
     		request.getParameter("option").toString().trim().matches("(auth)|(record)|(isauth)")		
@@ -60,4 +60,4 @@
     	
     }
     
-    %>
+    */%>

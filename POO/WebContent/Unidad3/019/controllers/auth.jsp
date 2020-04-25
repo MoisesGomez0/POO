@@ -27,7 +27,7 @@
 			}else{
 				out.print(
 					result.replace(Constants.StatusResult, "true")
-					.replace(Constants.MessageResult,"\"El usuario y/o la contraseña no son válidos\""
+					.replace(Constants.MessageResult,"\"El usuario y/o la contraseña no son válidos\"")
 				);				
 		}
 				
